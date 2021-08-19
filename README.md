@@ -20,9 +20,9 @@ ROMS\English\Utena_English1.iso
 
 ROMS\English\Utena_English2.iso
 
-ROMS\English\Utena_Sega1.iso
+ROMS\Japanese\Utena_Sega1.iso
 
-ROMS\English\Utena_Sega2.iso
+ROMS\Japanese\Utena_Sega2.iso
 
 3. Download ffmpeg-4.4-full_build, and extract its contents/install it to the following folder:
 
