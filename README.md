@@ -9,14 +9,19 @@ PREREQUISITES:
 1. Create the following folders:
 
 Output
+
 ROMS\English
+
 ROMS\Japanese
 
 2. Copy your ROMS ripped from a legally purchased copy of the game, with the translated english ROMs going to ROMS\English:
 
 ROMS\English\Utena_English1.iso
+
 ROMS\English\Utena_English2.iso
+
 ROMS\English\Utena_Sega1.iso
+
 ROMS\English\Utena_Sega2.iso
 
 3. Download ffmpeg-4.4-full_build, and extract its contents/install it to the following folder:
