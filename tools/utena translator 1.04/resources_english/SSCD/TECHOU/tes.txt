@@ -1,0 +1,19 @@
+System RAM / Cartridge RAM: Comic Sans MS Bold 12 pt (Photoshop CS6)
+
+Do not use pure black for text, because pure black is being used for transparency.
+Do not use either a brand of black whose 555 equivalent would be the same as the one for pure black.
+080808 should be fine (or any other where at least one of the components >= 8)
+
+IMPORTANT: before exporting a psd to 8 bits bmp, set to indexed mode --->USING<--- the apropiated .act file as palette.
+
+Slots: calibri sharp classic(12 for System, 10 for Cartridge) (paint.net)
+
+Header: 
+
+
+preview: century regular 48 (day), calibri regular 48 (top right), calibri regular 60 (bottom) (photoshop)
+Special cases: Late Night (deja book sans mono 30, "e" looked bad in calibri at size 40 after reduction),  Morning (calibri regular 40),  
+After school (dejavu  sans mono book 30; "ft" combination looked horrible in calibri and most fonts after image reduction)
+Old Fencing Hall: calibri regular 48 
+Dueling Arena: calibri regular 52
+After the Duel (dejavu sans mono book 30)

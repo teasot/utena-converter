@@ -1,0 +1,28 @@
+﻿Param(
+    [String]$RootPath = "D:\Upscaling"
+)
+
+# Load the relevant DLL files
+[Reflection.Assembly]::LoadWithPartialName(“System.IO”) | Out-Null
+
+# Set the "default" path to the path of the script
+$scriptpath = $MyInvocation.MyCommand.Path
+$dir = Split-Path $scriptpath
+cd $dir 
+
+$ISO1Location = "$RootPath\ROMS\English\Utena_English1.iso"
+$ISO2Location = "$RootPath\ROMS\English\Utena_English2.iso"
+$RootOutputFolder = "$RootPath\Output"
+
+$TempDir = [System.IO.Path]::Combine($RootOutputFolder, "temp")
+$ROM1OutputDir = [System.IO.Path]::Combine($TempDir, "ROM1")
+$ROM2OutputDir = [System.IO.Path]::Combine($TempDir, "ROM2")
+
+
+& '.\1. Initial Extract and Clean.ps1' -ISO1Location $ISO1Location -ISO2Location $ISO2Location -RootOutputFolder $RootOutputFolder
+
+& '.\2. Convert Images.ps1' -ISO1Location $ISO1Location -RootOutputFolder $RootOutputFolder
+
+& '.\3. Convert Audio.ps1' -RootOutputFolder $RootOutputFolder
+
+& '.\4. Convert Videos.ps1' -RootOutputFolder $RootOutputFolder

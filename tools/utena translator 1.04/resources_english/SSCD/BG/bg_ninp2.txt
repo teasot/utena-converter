@@ -1,0 +1,3 @@
+editor: photoshop cs 6
+font: arial regular 11pt
+

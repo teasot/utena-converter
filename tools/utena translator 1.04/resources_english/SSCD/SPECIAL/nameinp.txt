@@ -1,0 +1,5 @@
+font: comic sans ms 12
+editor: photoshop cs6
+
+color: e0c8d0
+border: 581020

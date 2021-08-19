@@ -1,0 +1,130 @@
+﻿Font: calibri 12 bold (most)
+calibri 11 bold: pt00, pt06, pt54
+calibri 10 bold: pt03, pt23, pt31, pt35, pt36, pt45, pt47, pt50, pt65
+calibri 9 bold: pt12, pt37, pt55
+Editor: paint.net
+--------------------------------------------------------------------------
+Example backgrounds (they may appear on more backgrounds)
+PT02: BG26B, BG66
+PT03: EVD52A and variants
+PT04: BG57
+PT05: BG02
+PT06: BG18, BG43
+PT07: BG54
+PT08: EVA52, BG26B, BG52
+PT09: EVA52
+PT10: BG31
+PT11: BG04
+PT12: EVA14
+PT13: BG34
+PT14: BG42
+PT15: BG55
+PT16: BG54 (same as hallway) This happens for example on day 24 when teacher tells Player about going to police
+PT18: BG03
+PT19: BG22
+PT20: BG25
+PT21: EVA24
+PT22: BG32
+PT23: BG10, BG58
+PT24: BG14
+PT25: BG11E
+PT26: BG30
+PT27: EVB25
+PT31: BG06
+PT32: BG08
+PT33: EVD18
+PT34: BG69
+PT35: EVD17
+PT36: EVD17B
+PT37: EVD79
+PT39: EVA04, BG68
+PT40: EVC09C
+PT41: EVB03
+PT42: BG41
+PT43: EVA52 (yeah this image again)
+PT44: BG19
+PT46: BG20
+PT47: BG12
+PT49: BG51
+PT50: EVC25
+PT51: EVC40
+PT52: BG28
+PT54: EVB08
+PT55: BG27
+PT56: EVC28
+PT57: EVB08
+PT60: EVB09
+PT61: EVB10
+PT62: EVB13
+PT63: EVB12
+PT64: EVB11
+PT65: EVC44
+---------------------------------------------------------------------------------------
+The "ID" text versions of the images can be located at 0x2A09C of the executable (0.BIN)
+PT00: 登校路
+PT01: 鳳学園
+PT02: 校門
+PT03: 校門前
+PT04: 階段
+PT05: 教室
+PT06: 教室前
+PT07: 廊下
+PT08: 学園内
+PT09: 校内
+PT10: 校内の丘
+PT11: 理事長室
+PT12: 生徒会室
+PT13: 保健室
+PT14: 家庭科教室
+PT15: 音楽室
+PT16: 職員室
+PT17: 資料室
+PT18: カフェテリア
+PT19: 新聞部
+PT20: 図書館
+PT21: 東館
+PT22: 東館前
+PT23: 東館玄関
+PT24: ウテナ達の部屋
+PT25: 自分の部
+PT26: 東館食堂
+PT27: シャワー室
+PT28: 風呂
+PT29: ホワイトハウス
+PT30: 廃墟
+PT31: 白亜の建物
+PT32: ロッカールーム
+PT33: 地下
+PT34: 地下室
+PT35: 地下への階段
+PT36: 地上への階段
+PT37: 根室記念館
+PT38: 面談室
+PT39: 中庭　温室
+PT40: 温室の裏
+PT41: 校庭
+PT42: グラウンド
+PT43: 学校裏
+PT44: 剣道部　道場
+PT45: 道場前
+PT46: フェンシング場
+PT47: 舞踏会　会場
+PT48: 冬芽の部屋
+PT49: 幹の家
+PT50: 幹の部屋
+PT51: 映画館
+PT52: 公園
+PT53: 噴水
+PT54: ファンシーショップ
+PT55: スポーツ用品店
+PT56: 交番
+PT57: 街
+PT58: 病室
+PT59: 医務室
+PT60: 白木蘭
+PT61: 紫丁香
+PT62: 忍逢
+PT63: ケーキ屋
+PT64: ゲームセンター
+PT65: 決闘の森
+PT66: 決闘広場

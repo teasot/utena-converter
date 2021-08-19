@@ -1,0 +1,27 @@
+﻿2a6dc: 0x20 (whitespace preceeding next text)
+2a6dd: 入力する文字の読みを選んで下さい 
+33 bytes max
+Please select the reading of the character -> Please enter your name
+
+2A700: 文字を選んで決定して下さい
+30 bytes max
+Please select character/letter -> Please select letter
+
+
+2A720: 苗字が入力されていません
+29 bytes max
+Family name must be filled
+
+2A740: 苗字が空白のみです
+26 bytes max
+Family name is blank
+
+2A75C: 名前が入力されていません
+29 bytes max
+First name must be filled
+
+2A77C: 名前が空白のみです
+26 bytes max
+First name is blank
+
+

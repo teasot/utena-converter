@@ -1,0 +1,9 @@
+gray: replaced by pure white, gray is problematic...
+blue: 87fffd
+font: arial regular 12 pt
+editor: adobe photoshop cs6
+
+border of white: 808080
+border of blue: 44ccfd
+
+Notes: psd need to be set to indexed mode before exporting to 8-bit bmp file.

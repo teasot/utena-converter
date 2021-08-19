@@ -1,0 +1,9 @@
+1. Have 2 ISO's as input, extract to same folders (using command line 7ZIP), overwriting data
+2. Use Utena.exe to extract both ISO's to "Converted" folder
+3. Convert all the audio from the extracted ISO's to "Converted" folder
+4. Parse options, writing each "day" to a JSON file, and having a text file with new lines seperating the days, in order.
+Some options WILL need to manually Parse
+Options are NOT names, sprites are reused. Generate a unique option name, i.e. Option1 for each option seperating5. 
+5. Investigate movie conversion
+6. Ignore upscaling for now. Focus on getting a few scenes working as a proof of concept.
+7. Go through the game and start grouping sequences together into one "scene", and name each scene

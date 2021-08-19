@@ -1,0 +1,4 @@
+font: sans, size: 15 & 16
+editor: gimp
+
+0003B060 file generated from 0002F050, changing "disc 2" with "disc 1"

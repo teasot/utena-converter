@@ -1,0 +1,27 @@
+font: comic sans ms, size 8 (student handbook), 11 ( the other two)
+editor: paint.net
+
+-----------------
+NEW GAME
+#000078		00000064   (special background)
+blue		00002374
+#1820E8		00004684
+#4858E0		00006994
+#90A0E8            	00008CA4
+white		0000AFB4
+------------------
+CONTINUE
+#000078		0000D2C4   (special background)
+blue		0000F5D4
+#1820E8		000118E4
+#4858E0		00013BF4
+#90A0E8            	00015F04
+white		00018214
+------------------
+STUDENT HANDBOOK
+#000078		0001A524   (special background)
+blue		0001C834
+#1820E8		0001EB44
+#4858E0		00020E54
+#90A0E8            	00023164
+white		00025474

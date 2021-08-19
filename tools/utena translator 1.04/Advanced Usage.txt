@@ -1,0 +1,255 @@
+Advanced usage requires you to start the program from command line or create your own .bat file.
+Advanced usage is meant for those that want to collaborate in translating remaining images with text, 
+or for people that want to re-translate the game to a different language.
+
+The usage of the program in command line is like this
+
+utena operation parameters
+
+- Applying a translation file:
+
+First of all, you need an original Japanese ISO (or at least one with unmodified SCN files).
+Let's say the filename is "Utena_Sega1.iso" and the translation file "utena_eng.ini":
+
+utena translate Utena_Sega1.iso Utena_English1.iso utena_eng.ini
+
+Optionally, you can include a couple of extra parameters for name and surname of character: this will cause the program to replace %N and %F at runtime by the given parameter.
+Example:
+
+utena translate Utena_Sega1.iso Utena_English1.iso utena_eng.ini Taeko Nagai
+
+(If the extra parameters for name and surname are "default", it will have same effect as not having introduced them).
+
+The command above will apply the translation file utena_eng.ini to a new iso file, Utena_English1.iso. Utena_Sega1.iso remains untouched.
+
+- Dumping a translation file:
+
+To dump the texts of an ISO file to an .ini file, use the following command:
+
+utena dump Utena_Sega1.iso utena_jpn.ini
+
+It will dump the texts of Utena_Sega1.iso to the file utena_jpn.ini
+The dump command can also be used with modified ISO files. This could be used to convert already existing translations to .ini format:
+
+utena dump Utena_Translated1.iso utena_translated.ini
+
+A modification of the dump command is the dump_rr command, which stands for "Dump and remove redundancy"
+
+utena dump_rr Utena_Sega1.iso utena_jpn.ini
+
+It will dump the texts of Utena_Sega1.iso and utena_jpn.ini AND it will scan and remove EXACT duplicate texts by doing variables assigning.
+
+Advice: use the normal "dump" command for ISOS that were translated using this program, and "dump_rr" for ISOS that were made by another program.
+
+- Checking completion of translation
+
+utena completion utena_eng.ini utena_jpn.ini
+
+Compares two ini files, to calculate an estimation of the completion.
+
+- Replacing a file (any kind of file) of the ISO with a local file.
+
+For example, replacing the Saturn executable file with a new one:
+
+utena replace_file Utena_English1.iso /0.BIN 0.BIN
+
+This command may be used in the future to replace font files (if the game is translated to a different language, this will be needed to include tildes, etc), 
+or to replace videos with subtitled versions.
+
+Currently this command may give a broken file if the local file is bigger than the one in the iso. This will be fixed in the future.
+
+- Extract and insert back images
+
+First, a quick overview of the image formats used by the game, and the formats the translator extracts them to / insert them from.
+The game has 3 image file formats, which can be uncompressed, compressed in a lossless way (LZSS) or in a container called "mato" (which can also be uncompressed or not)
+The extension of file is irrelevant, because sometime same extension uses different formats (and sometime same format can be in different extensions -_- )
+
+* DC format. This is a 16 bits image format. They can be standalone uncompressed, standalone compressed, or inside "mato" containers.
+The translator programs extracts them to 24 bits BMP files. To insert them back at the game (after you probably have modified it), the translator expects it to
+be a 24 bits BMP too.
+
+* PP format. This is a 8 bits image format with a palette of 256 colours (each colour of the palette is 16 bits). 
+The first colour in the palette is used as the transparent colour. The translator extracts them as 8 bits BMP with 256 colour palette (each colour 32 bits), and 
+same format is expected to insert them back.
+
+Because the game uses shared palettes, even if every individual image has its own palette, on practice the game shares some of them because it knows (or expects) before hand
+that they were the same. For this reason, when editing a palette-based image, you should use the same palette than the original image (there are some exceptions, the most 
+notable being NAMEP and SAVEP images, but it remains true for most of the images).
+
+The recommended way to proceed when modifying a palette based image in photoshop is this one (with other editors, it may be more or less alike)
+
++ Open the original image.
++ Go to image->mode->color table. Click save to save the original palette.
++ While editing the image, you probably want to be working in RGB mode, so go to image->mode->RGB color.
++ Once you are finished with editing, save your .psd file.
++ Final export to palette-based bmp: set indexed mode again (image->mode->indexed). In palette, select "Custom", and in the new dialog box select load and load the palette you saved at step 2.
+  Now save as BMP (photoshop will already select the proper options by default). Don't overwrite your RGB based .psd file in this step! As you probably want that for further editing if needed.
+
+* PP4 format. This is pretty much like above, except that it is 4 bits and the palette is 16 colours. 
+And so, the BMP format it is extracted is a BMP of 4 bits with 16 colours.
+The things about transparency of the PP format also apply to the PP4 format.
+
+* mato format. This isn't an image format, but a container, which usually contains inside one or more of the above images.
+
+----
+
+To extract all the images in the iso, use:
+
+utena extract_all_images Utena_Sega1.iso utena_images
+
+Where "utena_images" is a folder that will be created with all the images inside (in subfolders, with same file structure as the game).
+
+To extract specific images or to insert them back on an ISO, you need to know the format of that file in concrete.
+There is a total of 7 possible formats, and each one has a command to extract and a command to insert.
+For convenience, the file "formats_list.txt" included in this folder contains a list of the formats of all images so that you don't have to guess. 
+
+* DC
+The commands are "extract_dc" and "insert_dc"
+
+Examples:
+
+Extracting the file "/SSCD/START_BG.DG2" from the ISO Utena_Sega1.iso to the file START_BG.BMP
+
+utena extract_dc Utena_Sega1.iso /SSCD/START_BG.DG2 START_BG.BMP
+
+Inserting START_BG.BMP file to Utena_English1.iso in the location /SSCD/START_BG.DG2:
+
+utena insert_dc Utena_English1.iso /SSCD/START_BG.DG2 START_BG.BMP
+
+Beware that the file "Utena_English1.iso" must already exist and is modified here. So always use the insert commands on the translated ISO, and keep your original
+japanese ISO untouched.
+
+* DC (LZSS)
+
+Just like above, but the commands are "extract_lzss_dc" and "insert_lzss_dc" 
+
+Examples:
+
+Extract the image with the message card on the back of the "purple haired player":
+
+utena extract_lzss_dc Utena_Sega1.iso /SSCD/EV/EVA32B.DGP EVA32B.BMP
+
+Insert:
+
+utena insert_lzss_dc Utena_English1.iso /SSCD/EV/EVA32B.DGP EVA32B.BMP
+
+* PP
+
+Same as the two above, but the commands are "extract_pp" and "insert_pp"
+Examples:
+
+utena extract_pp Utena_Sega1.iso /SSCD/PLACETAG/DT22.DG2 DT22.BMP
+utena insert_pp Utena_English1.iso /SSCD/PLACETAG/DT22.DG2 DT22.BMP
+
+There are a couple of extra parameters for the insert operation, one of which is recommended to use.
+
+Extra parameter 1: offset, it indicates the offset of the pp in the file. If you have to set this, use always "0". This parameter was intended to insert pp files inside uncompressed mato,
+but the recommended command to do that is insert_mato.
+
+Extra parameter 2: colour fix mode. This can have the following values: "false", "true" and "fix_palette".
+false: the program will do nothing and it won't care about the colours of the palette at all.
+true: the program will fix the transparent colour, if it wasn't the first in the palette. This is the default operation if the parameter is not specified.
+fix_palette: the program will ensure that the palette will be stored identically to the original image. For this to work, the image should use only same colours as original image palette
+(see PP image format overview)
+
+Although the default of this parameter is "true", the recommended one is "fix_palette". 
+So, usually your insert_pp commands will look like this:
+
+utena insert_pp Utena_English1.iso /SSCD/PLACETAG/DT22.DG2 DT22.BMP 0 fix_palette
+
+* PP (LZSS)
+
+Like all of the above, but commands are "extract_lzss_pp" and "insert_lzss_pp"
+Examples:
+
+utena extract_lzss_pp Utena_Sega1.iso /SSCD/BG/BG13.DGP BG13.BMP
+utena insert_lzss_pp Utena_English1.iso /SSCD/BG/BG13.DGP BG13.BMP
+
+Just like "insert_pp", this command also has an extra parameter for the colour fix mode. (it doesn't have a parameter for offset though).
+So usually your insert_lzss_pp command should look like this:
+
+utena insert_lzss_pp Utena_English1.iso /SSCD/BG/BG13.DGP BG13.BMP fix_palette
+
+* PP4 (LZSS)
+
+Like all of the above but commands are "extract_lzss_pp4" and "insert_lzss_pp4"
+
+utena extract_lzss_pp4 Utena_Sega1.iso /SSCD/SP/WA_JYUL.DGP WA_JYUL.BMP
+utena insert_lzss_pp4 Utena_English1.iso /SSCD/SP/WA_JYUL.DGP WA_JYUL.BMP
+
+* mato
+
+Like all of the above... NO! This one is actually different, because it can have has several files.
+So instead of specifying a file name for the BMP, you only specify a base:
+
+Examples:
+
+Extract all the images related with disc change:
+
+utena extract_mato Utena_Sega1.iso /SSCD/CHG.TEX CHG
+
+This will create the following files:
+
+CHG_00000030.bmp
+CHG_00023040.bmp
+CHG_0002F050.bmp
+CHG_0003B060.bmp
+CHG_00047070.bmp
+
+The file names are always in the format BASENAME_XXXXXXXX.bmp where XXXXXXXX is the offset they are in the container.
+
+To insert:
+
+utena insert_mato Utena_English1.iso /SSCD/CHG.TEX CHG
+
+The insert_mato command expects the files in same file name format as outputted by extract_mato.
+
+The insert_mato command has two extra parameters.
+Extra parameter 1: colour_fix_mode. This is same as in insert_pp and insert_lzss_pp. This parameter is only used if at least one of the files inside the mato is a PP file.
+Otherwise, it is totally ignored.
+
+Extra parameter 2: ignore_missing_files. By default, the program expects that you have all the files that the container has, and it will warn if it cannot find a file.
+However, if you have only modified some of the files and don't want to include the rest (let's say for example that you have modified CHG_00000030.bmp, CHG_0002F050.bmp and
+CHG_0003B060.bmp, but not the other two), you can set this parameter to "true" and the program won't warn about files it cannot find.
+
+Examples:
+
+utena insert_mato Utena_English1.iso /SSCD/CHG.TEX CHG unused true
+
+(Since this was a mato with only DC images inside, the first extra parameter is set to "unused", although you could set it to anything, since it is ignored by the program).
+
+utena insert_mato Utena_English1.iso /SSCD/TECHOU/TEP06.TEX TEP06 fix_palette true
+
+This is a mato with PP files, so fix_palette is used.
+
+
+* mato (LZSS)
+
+Just like "mato", but the commands are "extract_lzss_mato" and "insert_lzss_mato"
+
+Examples:
+
+Extract Saionji:
+utena extrat_lzss_mato Utena_Sega1.iso /SSCD/FC/FC01A.CHP FC01A
+(will create 5 files FC01A_XXXXXXXX.bmp)
+
+Insert:
+utena insert_lzss_mato Utena_English1.iso /SSCD/FC/FC01A.CHP FC01A
+
+insert_lzss_mato has the same two extra parameters of insert_mato, and everything said there applies here too.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+Most importantly and primarily, the original Utena translation tool:
+http://forums.ohtori.nu/viewtopic3b1f.html?id=4005
+
+Download:
+https://mega.nz/#!ywtDzDza!ZXNxaD4q2V-PBY4w126FHCqOkVmnWzGWeIOJQkbrzz4
+Mirrors:
+http://www.4shared.com/rar/5lVaHN-Gba/u … r_104.html
+https://www.sendspace.com/file/6rbnaz
+
+Translation tool used for:
+- Translation (obviously)
+- Mapping of audio to voice lines and choices (with 6-8000 (?) voice lines it would be impossible without this)
+- Conversion of images to usable format
+- General inspiration
+
+Usage (in this application):
+To dump INI:
+utena dump Utena_Sega1.iso utena_jpn.ini
+To extract images:
+utena extract_all_images Utena_Sega1.iso utena_images
+
+Amicitia modding group for Atlus JRPGs, specifically Persona
+https://amicitia.miraheze.org/wiki/Main_Page
+
+In particular for the command line tools for:
+
+ACX archive file:
+https://amicitia.miraheze.org/wiki/ACX
+Tool:
+https://www.tapatalk.com/groups/amicitia/acx-tool-t784.html#new
+
+ADX audio file:
+https://amicitia.miraheze.org/wiki/ADX
+Tool:
+https://www.tapatalk.com/groups/amicitia/adxencd-t798.html
+
+Waifu2x upscaling tool:
+Github:
+https://github.com/nagadomi/waifu2x
+Demonstration site:
+http://waifu2x.udp.jp/
+
+Waifu2x Koroshell:
+Used the version distributed with this to upscale images (though may transition to the video one)
+http://inatsuka.com/extra/koroshell/
+
+Video2x:
+Used to upscale videos, and potentially images too:
+https://github.com/k4yt3x/video2x
+Specifically used 4.8.1:
+https://github.com/k4yt3x/video2x/releases/tag/4.8.1
+Codec used was Waifu2X Caffe
+
+FFMPEG:
+Used to convert CAK files to .webm files.
+Example:
+.\ffmpeg.exe -i D:\Upscaling\Output\temp\ROM1\SSCD\MOVIE\OPENING.CAK -vcodec libvpx -acodec libvorbis out.webm
+
+
+https://ffmpeg.org/
+Version used:
+4.4 Full
+https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z

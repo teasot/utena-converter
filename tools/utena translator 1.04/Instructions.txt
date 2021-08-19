@@ -1,0 +1,66 @@
+To translate the Japanese isos, follow these steps:
+
+- Place the Japanese isos of the game in this directory. They should be named "Utena_Sega1.iso" and "Utena_Sega2.iso"
+
+- (Optional but recommended step)
+Right click on "translate.bat" and select "Edit". Near the beginning, you will find these two lines:
+
+set name=default
+set surname=default
+
+Change "default" in both lines, with the desired name and surname for your character, respectively, and save the file.
+
+This step is optional, if you don't do this step, your character will have the name you enter in game, which is 
+very limited (only 3 chars for name and surname).
+
+The name and surname you enter here don't have any length limit but you must use only valid English characters, don't use tildes or 
+special symbols from other languages. 
+Japanese characters can also be used, but in that case, the .bat file must be edited in UTF-8 mode.
+
+- Run (double-click) translate.bat.
+
+That's all. Now you will have two new files in this directory: "Utena_English1.iso" and "Utena_English2.iso", which are the ones
+you must use with the emulator. The original Japanese isos remain untouched by the program. 
+Please keep your Japanese isos, you will need them for updates of the translation or to change the name of character.
+
+If you changed the name of your character in the .bat file, you can change it again at any moment by editing and running the .bat again.
+
+
+---------------
+
+
+Setting up the emulator and running the game (you can skip this if you already know how to do it)
+
+- Download the emulator from internet. The recommended emulator is "SSF 0.12 beta R3".
+  There is a more updated version of the emulator, "SSF 0.12 beta R4", but on my tests, it can be problematic
+  with some NVIDIA cards or drivers (not in all of them). 
+  
+  The game can also work on the other main Saturn emulator: Yabause, but unfortunately sound will not work on it; it is only
+  recommended if you can't make SSF work in your system.
+  
+- Because SSF can't load ISO files, you will need a Virtual CD emulator. There are a lot of them, but not all of them are compatible with SSF.
+  The recommended one is "Virtual CloneDrive", which is free and compatible with SSF.
+  
+- Saturn BIOS: good news, you don't need any bios file for SSF. The internal one of SSF works pretty well with this game. 
+  You will need one if you use Yabause emulator, though.
+
+- Mount "Utena_English1.iso" with Virtual CloneDrive.
+
+- Run SSF. In Options->CD Drive, select the unit of CloneDrive (ELBY CLONEDRIVE or something like that).
+
+- Optionally set the keys for the Saturn buttons (you can use keyboard or controller).
+
+- Now you can run the game. Use Alt+Enter to put the game in full screen, and Alt+Enter again to leave full screen mode.
+
+- When you create a new game, you will be asked to enter a name for your character.
+  If you did the optional step of setting the name of your character in the .bat file, then this one will be ignored in the game, but
+  it must be filled anyway.
+  
+  The name here will still appear in the load/save screen though, so maybe you want to make a short version of the name (otherwise just select letters randomly).
+  To enter western characters, go to the top-right Japanese letter, which will open a box with the western letters.
+  
+- Enjoy the game! At some point of the game, you will be asked to change the disc, just follow the instructions in screen.
+  
+  
+   
+   
