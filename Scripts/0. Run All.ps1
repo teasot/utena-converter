@@ -19,10 +19,9 @@ $ROM1OutputDir = [System.IO.Path]::Combine($TempDir, "ROM1")
 $ROM2OutputDir = [System.IO.Path]::Combine($TempDir, "ROM2")
 
 
-& '.\1. Initial Extract and Clean.ps1' -ISO1Location $ISO1Location -ISO2Location $ISO2Location -RootOutputFolder $RootOutputFolder
+& '.\1. Initial Extract and Clean.ps1' -RootPath $RootPath
+& '.\2. Convert Images.ps1' -RootPath $RootPath
 
-& '.\2. Convert Images.ps1' -ISO1Location $ISO1Location -RootOutputFolder $RootOutputFolder
+& '.\3. Convert Audio.ps1' -RootPath $RootPath
 
-& '.\3. Convert Audio.ps1' -RootOutputFolder $RootOutputFolder
-
-& '.\4. Convert Videos.ps1' -RootOutputFolder $RootOutputFolder
+& '.\4. Convert Videos.ps1' -RootPath $RootPath
