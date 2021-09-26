@@ -1,4 +1,6 @@
-﻿
+﻿Param(
+    [String]$RootPath = "D:\Upscaling"
+)
 [Reflection.Assembly]::LoadWithPartialName(“System.Windows.Forms”) | Out-Null
 [Reflection.Assembly]::LoadWithPartialName(“System.IO”) | Out-Null
 
@@ -104,5 +106,24 @@ foreach ($File in $DirectoryFiles){
     }
     else{
         & "$RootPath\tools\ImageMagick\magick.exe" convert $SourceFile -transparent "rgb(0,0,0)" $TargetFile
+    }
+}
+
+# Convert sprites
+$SourceDirectory = "$RootPath\Output\SSCD\FC"
+$DirectoryFiles = Get-ChildItem $SourceDirectory
+
+foreach ($File in $DirectoryFiles){
+    $NameWithoutExtension = $File.Name.Replace($File.Extension, "")
+    # Set the file names
+    $SourceFile = $SourceDirectory + "\" + $File.Name
+    $TargetFile = $SourceDirectory + "\" + $NameWithoutExtension + ".png"
+    $File.FullName
+    # Remove background and convert
+    if($NameWithoutExtension.StartsWith("FC01")){
+        & "$RootPath\tools\ImageMagick\magick.exe" convert $SourceFile -transparent "rgb(0,0,248)" $TargetFile
+    }
+    else{
+        & "$RootPath\tools\ImageMagick\magick.exe" convert $SourceFile -transparent "rgb(0,248,0)" $TargetFile
     }
 }
