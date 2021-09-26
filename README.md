@@ -3,7 +3,7 @@ Converter for RGU game images, audio and movies.
 
 WARNING:
 
-Running these scripts can take 5+ hours depending on hardware. 
+Running these scripts can take 2+ hours depending on hardware. 
 
 PREREQUISITES:
 1. Create the following folders:
