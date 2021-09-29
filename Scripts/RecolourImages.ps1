@@ -1,5 +1,5 @@
 ﻿Param(
-    [String]$RootPath = "D:\Upscaling"
+    [String]$RootPath = "C:\Users\Anthony\Documents\GitHub\utena-converter"
 )
 [Reflection.Assembly]::LoadWithPartialName(“System.Windows.Forms”) | Out-Null
 [Reflection.Assembly]::LoadWithPartialName(“System.IO”) | Out-Null
@@ -118,12 +118,14 @@ foreach ($File in $DirectoryFiles){
     # Set the file names
     $SourceFile = $SourceDirectory + "\" + $File.Name
     $TargetFile = $SourceDirectory + "\" + $NameWithoutExtension + ".png"
-    $File.FullName
     # Remove background and convert
     if($NameWithoutExtension.StartsWith("FC01")){
+        $NameWithoutExtension
         & "$RootPath\tools\ImageMagick\magick.exe" convert $SourceFile -transparent "rgb(0,0,248)" $TargetFile
+        Remove-Item $SourceFile
     }
     else{
         & "$RootPath\tools\ImageMagick\magick.exe" convert $SourceFile -transparent "rgb(0,248,0)" $TargetFile
+        Remove-Item $SourceFile
     }
 }

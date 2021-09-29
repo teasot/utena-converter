@@ -1,5 +1,5 @@
 ﻿Param(
-    [String]$RootPath = "D:\Upscaling"
+    [String]$RootPath = "C:\Users\Anthony\Documents\GitHub\utena-converter"
 )
 
 # Load the relevant DLL files
